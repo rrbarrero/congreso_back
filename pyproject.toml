@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "congresoiv"
+version = "0.1.0"
+description = ""
+authors = ["Roberto <rbarrero@posteo.net>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^3.2.9"
+django-extensions = "^3.1.5"
+django-excel-response = "^2.0.5"
+PyMySQL = "^1.0.2"
+django-environ = "^0.8.1"
+django-cors-headers = "^3.10.0"
+django-tinymce = "^3.3.0"
+mysqlclient = "^2.0.3"
+Werkzeug = "^2.0.2"
+
+[tool.poetry.dev-dependencies]
+black = {version = "^21.10b0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
