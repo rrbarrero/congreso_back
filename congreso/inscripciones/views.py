@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.middleware.csrf import get_token
@@ -12,13 +13,13 @@ def Csrf(request):
 
 
 def Sign_up(request):
-    if request == "POST":
-        dataForm = json.loads(request.body.decode("utf-8"))
+    if request.method == "POST":
+        dataForm = json.loads(request.body)
         dataForm.pop("email2")
         inscripcion = Inscripcion(**dataForm)
         inscripcion.save()
         if (
-            Inscripcion.objects.filter(estado_inscripcion=Inscripcion.ACEPTADA).count()
+            Inscripcion.objects.filter(estado_inscripcion=Inscripcion.ADMITIDA).count()
             >= Inscripcion.AFORO
         ):
             mailTemplate = Plantilla.objects.get(identificador="registro-full")

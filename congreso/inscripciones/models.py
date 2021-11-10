@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class Inscripcion(models.Model):
@@ -67,7 +67,7 @@ class Inscripcion(models.Model):
     telefono = models.CharField(_("Teléfono"), max_length=9)
     localidad = models.CharField(_("Localidad"), max_length=150)
     edad = models.PositiveSmallIntegerField(_("Edad"))
-    dni = models.CharField(_("DNI"), max_length=9, unique=True)
+    dni = models.CharField(_("DNI"), max_length=12, unique=True)
     localidad_trabajo = models.CharField(_("Localidad de trabajo"), max_length=150)
     mujer = models.BooleanField(_("Mujer"), default=False)
     varon = models.BooleanField(_("Varon"), default=False)
@@ -97,6 +97,9 @@ class Inscripcion(models.Model):
     )
     empresario_sector = models.CharField(
         _("Sector Empresario Autónomo"), max_length=150, blank=True
+    )
+    emprendedor_sector = models.CharField(
+        _("Sector Emprendedor"), max_length=150, blank=True
     )
     ong_sector = models.CharField(_("Sector ONG"), max_length=150, blank=True)
     otro_area_laboral = models.CharField(_("Otro Sector"), max_length=150, blank=True)
