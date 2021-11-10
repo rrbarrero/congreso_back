@@ -15,7 +15,7 @@ class InscripcionFactory(factory.django.DjangoModelFactory):
     telefono = fake.bothify(text="#########")
     localidad = fake.city()
     edad = fake.random_int(min=18, max=60)
-    dni = factory.Sequence(lambda n: f"1231232{n}-S")
+    dni = factory.Sequence(lambda n: f"931232{n}-S")
     localidad_trabajo = fake.city()
     mujer = mujer = fake.boolean()
     sector_laboral = fake.random_element(
