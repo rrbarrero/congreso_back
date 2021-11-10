@@ -9,13 +9,13 @@ class InscripcionFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Inscripcion
 
-    nombre = fake.first_name()
-    apellidos = fake.last_name() + " " + fake.last_name()
-    email = fake.email()
+    nombre = factory.Faker("name")
+    apellidos = factory.Faker("name")
+    email = factory.Faker("email")
     telefono = fake.bothify(text="#########")
     localidad = fake.city()
     edad = fake.random_int(min=18, max=60)
-    dni = fake.bothify(text="#########-?")
+    dni = factory.Sequence(lambda n: f"1231232{n}-S")
     localidad_trabajo = fake.city()
     mujer = mujer = fake.boolean()
     sector_laboral = fake.random_element(
