@@ -81,7 +81,7 @@ class Inscripcion(models.Model):
         _("Situación Laboral"),
         max_length=2,
         choices=SITUACION_LABORAL_CHOICES,
-        default=VACIO,
+        default=TRABAJADOR_POR_CUENTA_AJENA,
     )
     educativo_sector = models.CharField(
         _("Sector Educativo"),
