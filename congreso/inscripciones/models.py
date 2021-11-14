@@ -60,6 +60,12 @@ class Inscripcion(models.Model):
         (JORNADA_EXP_DOCENTES, _("Jornada Docentes")),
         (JORNADA_EXP_OTROS, _("Otros (estudiantes, profesionales, desempleados, etc.")),
     )
+    VARON = "V"
+    MUJER = "M"
+    SEXO_CHOICES = (
+        (VARON, _("Varón")),
+        (MUJER, _("Mujer")),
+    )
 
     nombre = models.CharField(_("Nombre"), max_length=150)
     apellidos = models.CharField(_("Apellidos"), max_length=150)
@@ -69,8 +75,9 @@ class Inscripcion(models.Model):
     edad = models.PositiveSmallIntegerField(_("Edad"))
     dni = models.CharField(_("DNI"), max_length=12, unique=True)
     localidad_trabajo = models.CharField(_("Localidad de trabajo"), max_length=150)
-    mujer = models.BooleanField(_("Mujer"), default=False)
-    varon = models.BooleanField(_("Varon"), default=False)
+    sexo = models.CharField(
+        _("Sexo"), max_length=1, choices=SEXO_CHOICES, default=MUJER
+    )
     estado_inscripcion = models.CharField(
         _("Estado"), max_length=1, choices=ESTADOS_CHOICE, default=PENDIENTE
     )

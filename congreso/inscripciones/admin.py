@@ -12,6 +12,7 @@ class InscripcionAdmin(admin.ModelAdmin):
         "educativo_sector",
         "renuncia",
         "certificado",
+        "sexo",
         "created_at",
     )
     search_fields = ("nombre", "apellidos", "email", "telefono", "localidad")
