@@ -17,7 +17,7 @@ class InscripcionFactory(factory.django.DjangoModelFactory):
     edad = fake.random_int(min=18, max=60)
     dni = factory.Sequence(lambda n: f"931232{n}-S")
     localidad_trabajo = fake.city()
-    mujer = mujer = fake.boolean()
+    sexo = fake.random_element(("V", "M"))
     sector_laboral = fake.random_element(
         elements=([x[0] for x in Inscripcion.SITUACION_LABORAL_CHOICES])
     )
@@ -40,10 +40,6 @@ class InscripcionFactory(factory.django.DjangoModelFactory):
     proyectos = fake.text()
     desplegar_aprendido = fake.text()
     competencias_clave_eleccion = fake.text()
-
-    @factory.lazy_attribute
-    def varon(self):
-        return not self.mujer
 
     @factory.lazy_attribute
     def educativo_sector(self):
