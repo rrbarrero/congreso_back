@@ -1,7 +1,9 @@
+from datetime import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
+from django.conf import settings
 from .utils import get_comunidadlsa_joined_at
 
 
@@ -87,6 +89,7 @@ class Inscripcion(models.Model):
     fecha_inscripcion_comunidad_lsa = models.DateField(
         _("Fecha de inscripción en la Comunidad LSA"), null=True, blank=True
     )
+    en_plazo = models.BooleanField(_("En plazo"), default=False)
     terminada = models.BooleanField(_("Inscripción Concluida"), default=False)
     renuncia = models.BooleanField(_("Renuncia"), default=False)
     certificado = models.BooleanField(_("Reclama Certificado"), default=False)
@@ -178,6 +181,9 @@ class Inscripcion(models.Model):
 
 @receiver(pre_save, sender=Inscripcion)
 def _presave_receiver(sender, instance, *args, **kwargs):
+    date_limit = datetime.strptime(settings.DATE_LIMIT, "%d/%m/%Y")
     joined_at = get_comunidadlsa_joined_at(instance.email)
     if joined_at:
         instance.fecha_inscripcion_comunidad_lsa = joined_at
+        if joined_at <= date_limit:
+            instance.en_plazo = True
