@@ -37,7 +37,9 @@ class InscripcionAdmin(admin.ModelAdmin):
         for inscripcion in queryset:
             sendCustomMail(plantilla, inscripcion)
 
-    confirmar_y_concluir.short_description = "Confirmar y concluir inscripciones"
+    confirmar_y_concluir.short_description = (
+        "Confirmar, notificar y concluir inscripciones"
+    )
 
 
 admin.site.register(Inscripcion, InscripcionAdmin)
