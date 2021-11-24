@@ -1,5 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from .utils import get_comunidadlsa_joined_at
 
 
 class Inscripcion(models.Model):
@@ -80,6 +83,9 @@ class Inscripcion(models.Model):
     )
     estado_inscripcion = models.CharField(
         _("Estado"), max_length=1, choices=ESTADOS_CHOICE, default=PENDIENTE
+    )
+    fecha_inscripcion_comunidad_lsa = models.DateField(
+        _("Fecha de inscripción en la Comunidad LSA"), null=True, blank=True
     )
     terminada = models.BooleanField(_("Inscripción Concluida"), default=False)
     renuncia = models.BooleanField(_("Renuncia"), default=False)
@@ -168,3 +174,10 @@ class Inscripcion(models.Model):
 
     def __str__(self):
         return self.email
+
+
+@receiver(pre_save, sender=Inscripcion)
+def _presave_receiver(sender, instance, *args, **kwargs):
+    joined_at = get_comunidadlsa_joined_at(instance.email)
+    if joined_at:
+        instance.fecha_inscripcion_comunidad_lsa = joined_at
