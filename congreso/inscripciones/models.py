@@ -15,9 +15,11 @@ class Inscripcion(models.Model):
     ADMITIDA = "A"
     DENEGADA = "D"
     PENDIENTE = "P"
+    RESERVA = "R"
     ESTADOS_CHOICE = (
         (PENDIENTE, _("Pendiente")),
         (ADMITIDA, _("Admitida")),
+        (RESERVA, _("En reserva")),
         (DENEGADA, _("Denegada")),
     )
     UNIVERSITARIO = "UN"
@@ -188,3 +190,8 @@ def _presave_receiver(sender, instance, *args, **kwargs):
         instance.fecha_inscripcion_comunidad_lsa = joined_at
         if joined_at <= date_limit:
             instance.en_plazo = True
+        else:
+            instance.en_plazo = False
+            instance.estado_inscripcion = Inscripcion.RESERVA
+    else:
+        instance.estado_inscripcion = Inscripcion.DENEGADA
