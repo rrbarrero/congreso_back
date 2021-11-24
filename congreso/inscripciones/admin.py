@@ -15,9 +15,11 @@ class InscripcionAdmin(admin.ModelAdmin):
         "email",
         "telefono",
         "estado_inscripcion",
+        "en_plazo",
         "created_at",
     )
     list_filter = (
+        "en_plazo",
         "estado_inscripcion",
         "jornada_experienciales",
         "sector_laboral",
@@ -26,6 +28,7 @@ class InscripcionAdmin(admin.ModelAdmin):
         "renuncia",
         "certificado",
         "sexo",
+        "fecha_inscripcion_comunidad_lsa",
         "created_at",
     )
     search_fields = ("nombre", "apellidos", "email", "telefono", "localidad")
