@@ -104,6 +104,7 @@ class Inscripcion(models.Model):
         max_length=2,
         choices=EDUCATIVO_CHOICES,
         default=VACIO,
+        blank=True,
     )
     funcionario_sector = models.CharField(
         _("Sector Funcionario"), max_length=150, blank=True
