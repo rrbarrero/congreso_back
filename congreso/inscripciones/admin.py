@@ -37,7 +37,7 @@ class InscripcionAdmin(admin.ModelAdmin):
 
     def confirmar_y_concluir(self, request, queryset):
         queryset.update(estado_inscripcion=Inscripcion.ADMITIDA, terminada=True)
-        plantilla = Plantilla.objects.get(identificador="notificacion-admitido")
+        plantilla = Plantilla.objects.get(identificador="aceptado")
         for inscripcion in queryset:
             sendCustomMail(plantilla, inscripcion)
 
