@@ -1,1 +1,42 @@
-[{"model": "mailapp.plantilla", "pk": 2, "fields": {"nombre": "registro ok", "identificador": "registro-ok", "asunto": "Hurdes, buenas noches. Notificación de Preinscripción.", "body_content": "<p>Gracias, {{usuario.nombre}}, hemos recibido tu solicitud de pre-inscripci&oacute;n.</p>\r\n<p>Debido a las circunstancias de pandemia y la limitaci&oacute;n de plazas, as&iacute; como el extraordinario inter&eacute;s que ha generado la iniciativa, debemos revisar cada solicitud. En breve nos pondremos en contacto contigo por correo para confirmar si la hemos aceptado.</p>\r\n<p>&nbsp;</p>\r\n<p>Un saludo y gracias.</p>"}}, {"model": "mailapp.plantilla", "pk": 3, "fields": {"nombre": "registro full", "identificador": "registro-full", "asunto": "Hurdes, buenas noches. Notificación de Preinscripción.", "body_content": "<p>Gracias, {{usuario.nombre}}, hemos recibido tu solicitud de pre-inscripci&oacute;n.</p>\r\n<p>Lamentablemente el aforo est&aacute; completo, no obstante, te hemos puesto en reserva y si queda alguna vacante nos pondremos en contacto contigo.</p>\r\n<p>Un saludo y gracias por tu inter&eacute;s.</p>"}}, {"model": "mailapp.plantilla", "pk": 4, "fields": {"nombre": "confirmado", "identificador": "confirmado", "asunto": "Las Hurdes, buenas noches.", "body_content": "<p>{{usuario.nombre|title}} nos ponemos en contacto con usted para informarle que hemos aceptado su inscripci&oacute;n para la jornada \"Hurdes, buenas noches\" que se celebra 18 de Diciembre de 2021.</p>\r\n<p>&nbsp;</p>\r\n<p><br />Un saludo y gracias.</p>"}}]
+[
+  {
+    "model": "mailapp.plantilla",
+    "pk": 1,
+    "fields": {
+      "nombre": "pendiente",
+      "identificador": "pendiente",
+      "asunto": "Congreso Sociedad del Aprendizaje",
+      "body_content": "<p>Estimado/a {{usuario.nombre|title}}</p>\r\n<p><br />Desde la organizaci&oacute;n del IV Congreso de la Sociedad del Aprendizaje de Extremadura te comunicamos que tu pre-inscripci&oacute;n se ha realizado correctamente.<br />En breve, recibir&aacute;s un correo electr&oacute;nico en el que te confirmaremos la aceptaci&oacute;n o no de la misma.&nbsp;</p>\r\n<p><br />Para cualquier duda puedes contactar con la organizaci&oacute;n a trav&eacute;s del correo <a href=\"mailto:congresoaprendizaje@juntaex.es\">congresoaprendizaje@juntaex.es</a>.</p>\r\n<p><br />Saludos.</p>"
+    }
+  },
+  {
+    "model": "mailapp.plantilla",
+    "pk": 2,
+    "fields": {
+      "nombre": "reserva",
+      "identificador": "reserva",
+      "asunto": "Congreso Sociedad del Aprendizaje",
+      "body_content": "<p>Estimado/a {{usuario.nombre|title}}</p>\r\n<p align=\"justify\">Desde la organizaci&oacute;n del IV Congreso de la Sociedad del Aprendizaje de Extremadura te comunicamos que tu solicitud de participaci&oacute;n ha sido registrada en el sistema en estado de <strong>RESERVA/EN LISTA DE ESPERA</strong>.</p>\r\n<p align=\"justify\">La raz&oacute;n para encontrarte en esta situaci&oacute;n es que:</p>\r\n<ol type=\"a\">\r\n<li>\r\n<p align=\"justify\">Te has inscrito en La Comunidad con fecha posterior al 6 de noviembre. Al disponer de plazas limitadas, tienen preferencia aquellas personas registradas con anterioridad al 6 de noviembre de 2021.</p>\r\n</li>\r\n</ol>\r\n<p align=\"justify\">Para cualquier duda puedes contactar con la organizaci&oacute;n a trav&eacute;s del correo <span style=\"color: #0563c1;\"><u><a href=\"mailto:congresoaprendizaje@juntaex.es\">congresoaprendizaje@juntaex.es</a></u></span>.</p>\r\n<p align=\"justify\">Saludos.</p>"
+    }
+  },
+  {
+    "model": "mailapp.plantilla",
+    "pk": 3,
+    "fields": {
+      "nombre": "aceptado",
+      "identificador": "aceptado",
+      "asunto": "Congreso Sociedad del Aprendizaje",
+      "body_content": "<p>Estimado/a {{usuario.nombre|title}}</p>\r\n<p align=\"justify\">Desde la organizaci&oacute;n del IV Congreso de la Sociedad del Aprendizaje de Extremadura te comunicamos que tu pre-inscripci&oacute;n se ha realizado correctamente y <strong>HA SIDO ACEPTADA</strong> para participar en las acciones programadas.</p>\r\n<p align=\"justify\">Te mantendremos informado de todos los aspectos necesarios para tu participaci&oacute;n a trav&eacute;s del correo electr&oacute;nico que nos has indicado.</p>\r\n<p align=\"justify\">Para cualquier duda puedes contactar con la organizaci&oacute;n a trav&eacute;s del correo <span style=\"color: #0563c1;\"><u><a href=\"mailto:congresoaprendizaje@juntaex.es\">congresoaprendizaje@juntaex.es</a></u></span>.</p>\r\n<p align=\"justify\">Saludos.</p>"
+    }
+  },
+  {
+    "model": "mailapp.plantilla",
+    "pk": 4,
+    "fields": {
+      "nombre": "denegada",
+      "identificador": "denegada",
+      "asunto": "Congreso Sociedad del Aprendizaje",
+      "body_content": "<p>Estimado/a {{usuario.nombre|title}}</p>\r\n<p>Desde la organizaci&oacute;n de la Sociedad del Aprendizaje de Extremadura lamentamos comunicarte que tu solicitud de participaci&oacute;n en las acciones del IV Congreso LSA ha sido <strong>DENEGADA</strong>.</p>\r\n<p>Las razones para su denegaci&oacute;n son:</p>\r\n<ol>\r\n<li>No estar registrado en La Comunidad</li>\r\n<li>Se ha registrado en La Comunidad con un correo electr&oacute;nico distinto. Si es as&iacute; deber&iacute;a hacerlo con el mismo.</li>\r\n</ol>\r\n<p>Cualquier duda puedes contactar con la organizaci&oacute;n a trav&eacute;s del correo <a href=\"mailto:congresoaprendizaje@juntaex.es\">congresoaprendizaje@juntaex.es</a>.</p>\r\n<p>&nbsp;</p>\r\n<p>Saludos.</p>"
+    }
+  }
+]

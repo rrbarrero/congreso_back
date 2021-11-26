@@ -18,17 +18,17 @@ def Sign_up(request):
         dataForm.pop("email2")
         inscripcion = Inscripcion(**dataForm)
         inscripcion.save()
-        if (
-            Inscripcion.objects.filter(estado_inscripcion=Inscripcion.ADMITIDA).count()
-            >= Inscripcion.AFORO
-        ):
-            mailTemplate = Plantilla.objects.get(identificador="registro-full")
-            mailTemplate(mailTemplate, inscripcion)
+        if inscripcion.fecha_inscripcion_comunidad_lsa:
+            if inscripcion.en_plazo:
+                mailTemplate = Plantilla.objects.get(nombre="pendiente")
+                sendCustomMail(mailTemplate, inscripcion)
+                return JsonResponse({"status": "recibida"})
+            mailTemplate = Plantilla.objects.get(nombre="reserva")
             sendCustomMail(mailTemplate, inscripcion)
-            return JsonResponse({"status": "ok_but_full"})
-        mailTemplate = Plantilla.objects.get(identificador="registro-ok")
+            return JsonResponse({"status": "reserva"})
+        mailTemplate = Plantilla.objects.get(nombre="denegada")
         sendCustomMail(mailTemplate, inscripcion)
-        return JsonResponse({"status": "ok"})
+        return JsonResponse({"status": "denegada"})
     return JsonResponse({"status": "error"})
 
 
