@@ -22,6 +22,8 @@ class InscripcionAdmin(admin.ModelAdmin):
         "en_plazo",
         "estado_inscripcion",
         "jornada_experienciales",
+        "primer_taller",
+        "segundo_taller",
         "sector_laboral",
         "terminada",
         "educativo_sector",
