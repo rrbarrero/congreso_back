@@ -73,6 +73,66 @@ class Inscripcion(models.Model):
         (VARON, _("Varón")),
         (MUJER, _("Mujer")),
     )
+    TALLER_ENERO_PRIMER = "A"
+    TALLER_ENERO_SEGUNDO = "B"
+    TALLER_ENERO_TERCER = "C"
+    TALLER_ENERO_CUARTO = "D"
+    TALLER_ENERO_CHOICES = (
+        (
+            TALLER_ENERO_PRIMER,
+            _(
+                "Taller de Formación de 10:00 a 14:00 el lunes 17 de enero 2022 en Mérida."
+            ),
+        ),
+        (
+            TALLER_ENERO_SEGUNDO,
+            _(
+                "Taller de Formación de 16:30 a 20:30 el martes 18 de enero 2022 en Mérida."
+            ),
+        ),
+        (
+            TALLER_ENERO_TERCER,
+            _(
+                "Taller de Formación de 10:00 a 14:00 el miércoles 19 de enero 2022 en Mérida."
+            ),
+        ),
+        (
+            TALLER_ENERO_CUARTO,
+            _(
+                "Taller de Formación de 16:30 a 20:30 el jueves 20 de enero 2022 en Mérida."
+            ),
+        ),
+    )
+    TALLER_MAYO_PRIMER = "A"
+    TALLER_MAYO_SEGUNDO = "B"
+    TALLER_MAYO_TERCER = "C"
+    TALLER_MAYO_CUARTO = "D"
+    TALLER_MAYO_CHOICES = (
+        (
+            TALLER_MAYO_PRIMER,
+            _(
+                "Taller de Formación de 10:00 a 14:00 el lunes 23 de mayo de 2022 en Mérida."
+            ),
+        ),
+        (
+            TALLER_MAYO_SEGUNDO,
+            _(
+                "Taller de Formación de 16:30 a 20:30 el martes 24 de mayo de 2022 en Mérida."
+            ),
+        ),
+        (
+            TALLER_MAYO_TERCER,
+            _(
+                "Taller de Formación de 10:00 a 14:00 el miércoles 25 de mayo de 2022 en Mérida."
+            ),
+        ),
+        (
+            TALLER_MAYO_CUARTO,
+            _(
+                "Taller de Formación de 16:30 a 20:30 el jueves 26 de mayo de 2022 en Mérida."
+            ),
+        ),
+    )
 
     nombre = models.CharField(_("Nombre"), max_length=150)
     apellidos = models.CharField(_("Apellidos"), max_length=150)
@@ -155,6 +215,18 @@ class Inscripcion(models.Model):
         max_length=2,
         choices=JORNADA_EXP_CHOICES,
         default=JORNADA_EXP_EMPRENDEDORES,
+    )
+    primer_taller = models.CharField(
+        _("Primer Taller"),
+        max_length=1,
+        choices=TALLER_ENERO_CHOICES,
+        default=TALLER_ENERO_PRIMER,
+    )
+    segundo_taller = models.CharField(
+        _("Segundo Taller"),
+        max_length=1,
+        choices=TALLER_MAYO_CHOICES,
+        default=TALLER_MAYO_SEGUNDO,
     )
     compromiso = models.CharField(_("Compromiso"), max_length=150, blank=True)
     proximo_anio = models.TextField(
