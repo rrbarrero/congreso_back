@@ -140,7 +140,7 @@ class Inscripcion(models.Model):
     telefono = models.CharField(_("Teléfono"), max_length=9)
     localidad = models.CharField(_("Localidad"), max_length=150)
     edad = models.PositiveSmallIntegerField(_("Edad"))
-    dni = models.CharField(_("DNI"), max_length=12, unique=True)
+    dni = models.CharField(_("DNI"), max_length=12, blank=True)
     localidad_trabajo = models.CharField(_("Localidad de trabajo"), max_length=150)
     sexo = models.CharField(
         _("Sexo"), max_length=1, choices=SEXO_CHOICES, default=MUJER
