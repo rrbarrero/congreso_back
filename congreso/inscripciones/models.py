@@ -169,21 +169,21 @@ class Inscripcion(models.Model):
         blank=True,
     )
     funcionario_sector = models.CharField(
-        _("Sector Funcionario"), max_length=150, blank=True
+        _("Sector Funcionario"), max_length=300, blank=True
     )
     trabajador_cuenta_ajena_sector = models.CharField(
-        _("Sector Cuenta Ajena"), max_length=150, blank=True
+        _("Sector Cuenta Ajena"), max_length=300, blank=True
     )
     empresario_sector = models.CharField(
-        _("Sector Empresario Autónomo"), max_length=150, blank=True
+        _("Sector Empresario Autónomo"), max_length=300, blank=True
     )
     emprendedor_sector = models.CharField(
-        _("Sector Emprendedor"), max_length=150, blank=True
+        _("Sector Emprendedor"), max_length=300, blank=True
     )
-    ong_sector = models.CharField(_("Sector ONG"), max_length=150, blank=True)
-    otro_area_laboral = models.CharField(_("Otro Sector"), max_length=150, blank=True)
+    ong_sector = models.CharField(_("Sector ONG"), max_length=300, blank=True)
+    otro_area_laboral = models.CharField(_("Otro Sector"), max_length=300, blank=True)
     estudiante_especialidad = models.CharField(
-        _("Estudiante Especialidad"), max_length=150, blank=True
+        _("Estudiante Especialidad"), max_length=300, blank=True
     )
     conoce_lsa = models.BooleanField(_("Conoce LSA"), default=False)
     participado_accion_lsa = models.BooleanField(
@@ -198,7 +198,7 @@ class Inscripcion(models.Model):
         _("Conoce Esloga Congreso 3"), default=False
     )
     conoce_eslogan_congreso_tres_detalle = models.CharField(
-        _("Eslogan 3er Congreso"), max_length=150, blank=True
+        _("Eslogan 3er Congreso"), max_length=300, blank=True
     )
     conoce_comunidad_lsa = models.BooleanField(_("Conoce Comunidad LSA"), default=False)
     registrado_comunidad_lsa = models.BooleanField(
@@ -228,7 +228,7 @@ class Inscripcion(models.Model):
         choices=TALLER_MAYO_CHOICES,
         default=TALLER_MAYO_SEGUNDO,
     )
-    compromiso = models.CharField(_("Compromiso"), max_length=150, blank=True)
+    compromiso = models.CharField(_("Compromiso"), max_length=300, blank=True)
     proximo_anio = models.TextField(
         _(
             "Qué estás dispuesto hacer el próximo año con todo lo aprendido en el marco de la Sociedad del Aprendizaje?"
