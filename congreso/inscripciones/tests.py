@@ -11,10 +11,10 @@ from mailapp.models import Plantilla
 @pytest.fixture(autouse=True)
 def create_mail_template():
     Plantilla.objects.create(
-        nombre="registro ok",
-        identificador="registro-ok",
-        asunto="Asunto Registro ok",
-        body_content="body mail registro ok",
+        nombre="denegada",
+        identificador="denegada",
+        asunto="Asunto Registro denegado",
+        body_content="body mail registro denegado",
     )
     assert Plantilla.objects.count() == 1
 
@@ -28,4 +28,4 @@ def test_new_sign_up():
         reverse("signup"), json.dumps(inscripcion), content_type="application/json"
     )
     assert response.status_code == 200
-    assert response.content == b'{"status": "ok"}'
+    assert response.content == b'{"status": "denegada"}'
